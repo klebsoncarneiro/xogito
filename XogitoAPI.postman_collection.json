@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "120d31fa-cfe3-44cf-8c74-f0de7e9c64a8",
+		"name": "Xogito API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/xogito/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"xogito",
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/xogito/api/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"xogito",
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New User / Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Name",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "YourPassword",
+							"type": "text"
+						},
+						{
+							"key": "is_admin",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/xogito/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"xogito",
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "name=NewName&active=on"
+				},
+				"url": {
+					"raw": "http://localhost/xogito/api/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"xogito",
+						"api",
+						"user",
+						"1"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "NewName",
+							"disabled": true
+						},
+						{
+							"key": "active",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "email2@email2.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/xogito/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"xogito",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Get MFA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/xogito/api/login/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"xogito",
+						"api",
+						"login",
+						"1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify MFA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
