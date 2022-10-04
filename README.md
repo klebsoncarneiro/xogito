@@ -24,17 +24,18 @@ User API in PHP
 ## Install
 
 You can download this repository to your machine through `git clone` in your localhost root:
+```
 git clone https://github.com/klebson.carneiro/xogito
-
+```
 Composer installation for the API:
-
+```
 cd xogito
 composer update
 composer require mailjet/mailjet-apiv3-php
 composer require ext-curl
-
+```
 Final composer.json:
-
+```
 {
     "autoload":{
         "psr-4":{
@@ -49,15 +50,15 @@ Final composer.json:
         "ext-curl": "*"
     }
 }
-
+```
 ## Database
 
-A PostgreSQL database is used for this example*
-config.env.php.example supplied
-(*) Ask for the config.env.php
+- A PostgreSQL database is used for this example*
+- config.env.php.example supplied
+- (*) Ask for the config.env.php
 
 Table needed:
-
+```
 create table user_account (
     id serial not null,
     name varchar not null,
@@ -67,20 +68,22 @@ create table user_account (
     mfa_code int null,
     is_admin boolean not null default false
 );
-
+```
 You need an admin account to start using the system with a valid e-mail to get the MFA Code:
-
+```
 insert into user_account (name, email, password, is_admin) values ('Admin', 'adminemail@adminemail.com', 'your_password', true);
-
+```
 ## Mailer
 
-Mailjet is used for this example*
-config.env.php.example supplied
-(*) Ask for the config.env.php
+- Mailjet is used for this example*
+- config.env.php.example supplied
+- (*) Ask for the config.env.php
 
 ## Postman request collection for the API
 - https://github.com/klebson.carneiro/xogito/XogitoAPI.postman_collection.json
 
 ## How to use
-
--   Main page: http://localhost/xogito/
+- Main page: 
+```
+http://localhost/xogito/
+```
