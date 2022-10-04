@@ -7,12 +7,14 @@ if (!empty($_POST['name'])){//insert
   $name = pg_escape_string($_POST['name']);
   $email = pg_escape_string($_POST['email']);
   $password = pg_escape_string($_POST['password']);
+  $is_admin = pg_escape_string($_POST['is_admin']);
 
   $postdata = http_build_query(
     array(
         'name' => $name,
         'email' => $email,
-        'password' => $password
+        'password' => $password,
+        'is_admin' => $is_admin
     )
   );
 
@@ -52,6 +54,9 @@ if (!empty($_POST['name'])){//insert
     <label for="name">Name:</label> <input type="text" id="name" name="name" required /> <br />
     <label for="email">E-mail:</label> <input type="text" id="email" name="email" required /> <br />
     <label for="password">Password:</label> <input type="password" id="password" name="password" required /><br />
+    <label for="is_admin">Is Admin?</label>
+    <input type="radio" id="is_admin" name="is_admin" value="on" />Yes 
+    <input type="radio" id="is_admin" name="is_admin" value="off" checked />No<br />     
     <button>Submit</button>
     <?php     
     if (isset($_SESSION['error'])){
