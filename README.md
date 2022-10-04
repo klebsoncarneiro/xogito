@@ -80,8 +80,8 @@ insert into user_account (name, email, password, is_admin) values ('Admin', 'adm
 - (*) Ask for the config.env.php
 
 ## Postman request collection for the API
-- https://github.com/klebson.carneiro/xogito/XogitoAPI.postman_collection.json
-
+- https://github.com/klebsoncarneiro/xogito/blob/main/XogitoAPI.postman_collection.json
+- 
 ## How to use
 - Main page: 
 ```
