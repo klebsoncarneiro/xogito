@@ -76,12 +76,29 @@ insert into user_account (name, email, password, is_admin) values ('Admin', 'adm
 ## Mailer
 
 - Mailjet is used for this example*
+
+## config.env.php
+
+- You need to fill up these fields for Mailjet, PostgreSQL and JWT secret*
 - config.env.php.example supplied
 - (*) Ask for the config.env.php
 
+```
+const DBDRIVE = "pgsql";
+const DBHOST = "***";
+const DBNAME = "***";
+const DBUSER = "***";
+const DBPASS = "***";
+
+const MAILJET_APIKEY = "***";
+const MAILJET_SECRETKEY = "***";
+
+const TOKEN_SECRET = "***";
+```
+
 ## Postman request collection for the API
 - https://github.com/klebsoncarneiro/xogito/blob/main/XogitoAPI.postman_collection.json
-- 
+
 ## How to use
 - Main page: 
 ```
