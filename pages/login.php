@@ -74,6 +74,7 @@ if ($json_return->status == 'error'){
     $_SESSION['id'] = $json_data->id;
     $_SESSION['is_admin'] = $json_data->is_admin;
     $_SESSION['name'] = $json_data->name;
+    $_SESSION['email'] = $email;
 
     $json = file_get_contents('http://localhost/xogito/api/login/'.$_SESSION['id']);
 
@@ -93,5 +94,6 @@ if ($json_return->status == 'error'){
         send_email($email, "Xogito - MFA", "Use the following code: ".$_SESSION['mfa']." to login.", 'klebsoncarneiro@gmail.com', 'Xogito Texst');
 
         header("Location: mfa/");
+
     }
 }

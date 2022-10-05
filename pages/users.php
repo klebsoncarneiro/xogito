@@ -8,7 +8,16 @@ if (empty($_SESSION['logged_in']) || $_SESSION['is_admin'] == false){
     die;
 }
 
-$json = file_get_contents('http://localhost/xogito/api/user/');
+$opts = array('http' =>
+  array(
+      'method'  => 'GET',
+      'header' =>  'Authorization: Bearer '.$_SESSION['token']
+  )
+);
+
+$context = stream_context_create($opts);
+
+$json = file_get_contents('http://localhost/xogito/api/user/', false, $context);
 
 $json_return = json_decode($json);
 

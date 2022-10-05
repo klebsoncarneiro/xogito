@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
+use App\Controllers\AuthController;
 
 class UserService {
 
@@ -15,11 +16,17 @@ class UserService {
    * @return mixed
    */
     public function get($id = null){
+
+        if (!AuthController::checkAuth()){
+            throw new \Exception('Not authenticated');
+        }
+
         if ($id){
             return User::select($id);
         } else {
             return User::selectAll();
         }
+
     }
 
    /**
@@ -50,6 +57,10 @@ class UserService {
    * @return mixed
    */
     public function put($id){
+
+        if (!AuthController::checkAuth()){
+            throw new \Exception('Not authenticated');
+        }
 
         parse_str(file_get_contents("php://input"),$post_vars);
 

@@ -8,6 +8,16 @@
 		{
 			"name": "List Users",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjQ5NDE2NDIsImFwcCI6InhvZ2l0byIsImVtYWlsIjoia2xlYnNvbmNhcm5laXJvQGdtYWlsLmNvbSJ9.wNJDwfiLo9HfIfQ3a6Xv8AZNQBVRi8LbIHqhva5X56s=",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -29,6 +39,16 @@
 		{
 			"name": "Get User",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjQ5NDE2NDIsImFwcCI6InhvZ2l0byIsImVtYWlsIjoia2xlYnNvbmNhcm5laXJvQGdtYWlsLmNvbSJ9.wNJDwfiLo9HfIfQ3a6Xv8AZNQBVRi8LbIHqhva5X56s=",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -50,6 +70,16 @@
 		{
 			"name": "New User / Signup",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjQ5NDE2NDIsImFwcCI6InhvZ2l0byIsImVtYWlsIjoia2xlYnNvbmNhcm5laXJvQGdtYWlsLmNvbSJ9.wNJDwfiLo9HfIfQ3a6Xv8AZNQBVRi8LbIHqhva5X56s=",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -96,6 +126,16 @@
 		{
 			"name": "Update user",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjQ5NDE2NDIsImFwcCI6InhvZ2l0byIsImVtYWlsIjoia2xlYnNvbmNhcm5laXJvQGdtYWlsLmNvbSJ9.wNJDwfiLo9HfIfQ3a6Xv8AZNQBVRi8LbIHqhva5X56s=",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
@@ -196,10 +236,70 @@
 		{
 			"name": "Verify MFA",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "718093",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "klebsoncarneiro@gmail.com",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost/xogito/api/mfa/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"xogito",
+						"api",
+						"mfa",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "klebsoncarneiro@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/xogito/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"xogito",
+						"auth",
+						"login"
+					]
 				}
 			},
 			"response": []

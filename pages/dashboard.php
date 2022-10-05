@@ -1,6 +1,5 @@
 <?
 session_start();
-$base_dir = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/xogito/';
 
 if (empty($_SESSION['logged_in'])){
     header("Location: ../");
@@ -10,7 +9,7 @@ if (empty($_SESSION['logged_in'])){
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="stylesheet" href="../../styles/style.css" />
     <title>Xogito API Klebson - Dashboard</title>
 </head>
 <body>

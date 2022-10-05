@@ -30,7 +30,8 @@ if (!empty($_POST['name']) || !empty($_POST['active'])){//update
         'method'  => 'PUT',
         'content' => $postdata,
         'header' => "Content-type: application/x-www-form-urlencoded\r\n"
-        . "Content-Length: " . strlen($postdata) . "\r\n",
+        . "Content-Length: " . strlen($postdata) . "\r\n"
+        . "Authorization: Bearer " . $_SESSION['token'] . "\r\n"
     )
   );
 
@@ -45,7 +46,18 @@ if (!empty($_POST['name']) || !empty($_POST['active'])){//update
   } 
 }
 
-$json = file_get_contents('http://localhost/xogito/api/user/'.$id);
+$opts = array('http' =>
+  array(
+      'method'  => 'GET',
+      'header' => "Content-type: application/x-www-form-urlencoded\r\n"
+      . "Content-Length: " . strlen($postdata) . "\r\n"
+      . "Authorization: Bearer " . $_SESSION['token'] . "\r\n"
+  )
+);
+
+$context = stream_context_create($opts);
+
+$json = file_get_contents('http://localhost/xogito/api/user/'.$id, false, $context);
 
 $json_return = json_decode($json);
 

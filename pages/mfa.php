@@ -10,11 +10,13 @@ unset($_SESSION['error']);
 if (!empty($_POST['code'])){
   $id = pg_escape_string($_SESSION['id']);
   $code = pg_escape_string($_POST['code']);
+  $email = pg_escape_string($_SESSION['email']);
 
   $postdata = http_build_query(
     array(
         'id' => $id,
-        'code' => $code
+        'code' => $code,
+        'email' => $email
     )
   );
 
@@ -39,6 +41,8 @@ if (!empty($_POST['code'])){
     header("Location: ../");
     die;
   }
+
+  $_SESSION['token'] = $json_return->data;
   $_SESSION['logged_in'] = $_SESSION['id'];
   header("Location: ../dashboard/");
   exit;
@@ -47,7 +51,7 @@ if (!empty($_POST['code'])){
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../../styles/style.css" />
     <title>Xogito API Klebson - Multi Factor Authentication</title>
 </head>
 <body>

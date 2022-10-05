@@ -27,7 +27,7 @@ if (!empty($_POST['name'])){//insert
         'method'  => 'POST',
         'content' => $postdata,
         'header' => "Content-type: application/x-www-form-urlencoded\r\n"
-        . "Content-Length: " . strlen($postdata) . "\r\n",
+        . "Content-Length: " . strlen($postdata) . "\r\n"
     )
   );
 

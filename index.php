@@ -15,23 +15,45 @@
             
             //Shift an element off the beginning of array
             array_shift($url);
-            //App\Services\\UserService
+            //e.g.: App\Services\\UserService
             $service = 'App\Services\\'.ucfirst($url[0]).'Service';
-            //get,post,update,delete
+            //get,post,put,delete
             $method = strtolower($_SERVER['REQUEST_METHOD']);
                         
             try {                
                 //Returns the shifted value, or null if array is empty or is not an array.
                 array_shift($url);
-                if (class_exists($service)){
+                if (class_exists($service) && method_exists($service , $method)){
                     $response = call_user_func_array(array(new $service, $method), $url);               
                 } else {
                     throw new \Exception ('Invalid Endpoint');  
                 }
-                //http_response_code(200);
                 echo json_encode(array ('status' => 'success', 'data' => $response));                
             } catch (\Exception $e ) {
-                //http_response_code(404);
+                echo json_encode(array ('status' => 'error', 'data' => $e->getMessage()), JSON_UNESCAPED_UNICODE);                
+            }
+            exit;
+        } else if ($url[0] === 'auth') {
+            header('Content-Type: application/json');
+            
+            //e.g.: App\Controllers\\AuthController
+            $controller = 'App\Controllers\\'.ucfirst($url[0]).'Controller'; 
+            
+            try {           
+                //Shift an element off the beginning of array
+                array_shift($url);              
+                //verb
+                $method = $url[0];                       
+              
+                //Returns the shifted value, or null if array is empty or is not an array.
+                array_shift($url);
+                if (class_exists($controller) && method_exists($controller, $method)){
+                    $response = call_user_func_array(array(new $controller, $method), $url);               
+                } else {
+                    throw new \Exception ('Invalid Endpoint');  
+                }
+                echo json_encode(array ('status' => 'success', 'data' => $response));                
+            } catch (\Exception $e ) {
                 echo json_encode(array ('status' => 'error', 'data' => $e->getMessage()), JSON_UNESCAPED_UNICODE);                
             }
             exit;
@@ -45,9 +67,11 @@
         session_start();
         unset($_SESSION['id']);
         unset($_SESSION['name']);
+        unset($_SESSION['email']);
         unset($_SESSION['mfa']);
         unset($_SESSION['is_admin']);
         unset($_SESSION['logged_in']);
+        unset($_SESSION['token']);
     }
 ?>
 <!DOCTYPE html>
