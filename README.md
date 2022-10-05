@@ -73,6 +73,8 @@ You need an admin account to start using the system with a valid e-mail to get t
 ```
 insert into user_account (name, email, password, is_admin) values ('Admin', 'adminemail@adminemail.com', 'your_password', true);
 ```
+Or just create an admin user through signup page (this is available only for testing purposes)
+
 ## Mailer
 
 - Mailjet is used for this example*
