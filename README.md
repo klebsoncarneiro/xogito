@@ -76,10 +76,12 @@ insert into user_account (name, email, password, is_admin) values ('Admin', 'adm
 ## Mailer
 
 - Mailjet is used for this example*
+- config.env.php.example supplied
+- (*) Ask for the config.env.php
 
 ## config.env.php
 
-- You need to fill up these fields for Mailjet, PostgreSQL and JWT secret*
+- You need to fill up these fields for PostgreSQL, Mailjet and JWT secret*
 - config.env.php.example supplied
 - (*) Ask for the config.env.php
 
