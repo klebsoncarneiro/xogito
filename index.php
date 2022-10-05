@@ -6,9 +6,6 @@
     if ($_GET ['url']) {
         $url = explode('/', $_GET['url']);
 
-        /*var_dump ($_POST);
-        die;
-*/
         if ($url[0] === 'api') {
 
             header('Content-Type: application/json');
